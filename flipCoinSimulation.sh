@@ -1,14 +1,19 @@
 #!/bin/bash -x
 
-coin=$((RANDOM%2))
+heads=0
+tails=0
+for ((i=1; i<10; i++))
+do
+	coin=$((RANDOM%2))
+	if [ $coin -eq 0 ]
+	then
+		((heads++))
+	else
+		((tails++))
+	fi
+done
 
-if [ $coin -eq 0 ]
-then
-	echo heads
-else
-	echo tails
-fi
-
-
+echo heads came : $heads
+echo tails came : $tails
 
 
