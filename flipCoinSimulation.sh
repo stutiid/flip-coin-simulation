@@ -2,7 +2,7 @@
 
 heads=0
 tails=0
-for ((i=1; i<10; i++))
+while [[ $heads -ne 21 && $tails -ne 21 ]]
 do
 	coin=$((RANDOM%2))
 	if [ $coin -eq 0 ]
@@ -13,7 +13,13 @@ do
 	fi
 done
 
-echo heads came : $heads
-echo tails came : $tails
-
+if [ $heads -eq $tails ]
+then
+	echo its a tie
+elif [ $heads -gt $tails ]
+then
+	echo heads win by $(($heads-$tails))
+else
+	echo tails win by $(($tails-$heads))
+fi
 
